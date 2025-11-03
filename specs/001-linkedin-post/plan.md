@@ -97,3 +97,38 @@ docs/                 # Additional documentation
 |-----------|------------|-------------------------------------|
 | [e.g., 4th project] | [current need] | [why 3 projects insufficient] |
 | [e.g., Repository pattern] | [specific problem] | [why direct DB access insufficient] |
+
+---
+
+## Quality Improvements (Based on Claude Testing Feedback)
+
+### Directory Structure & File Handling
+- **Page Title Extraction**: Extract actual Notion page title and sanitize for directory names instead of hardcoded patterns
+- **Cross-Platform Compatibility**: Implement proper file naming sanitization for Windows/Linux/macOS
+- **Directory Conflict Prevention**: Check directory existence before creation
+
+### Content Validation & Quality Assurance
+- **Character Count Validation**: Enforce < 3000 character limit with actual counting, not estimation
+- **Hashtag Validation**: Ensure ≤ 3 hashtags per post with automated checking
+- **Style Guide Compliance**: Validate formatting rules (separators, APA title case, etc.) after generation
+- **Template Variable Mapping**: Systematically map template variables from transcript content
+- **Content Consistency**: Ensure consistent voice and structure across all generated posts
+
+### Process Improvements
+- **Validation Checkpoints**: Add verification steps after each major operation
+- **Post-Generation Checklist**: Implement requirement verification before file saving
+- **Enhanced Error Handling**: Specific recovery procedures for different failure modes
+- **Progress Reporting**: Detailed status updates throughout the process
+
+### Reporting & Metrics
+- **Completion Summary**: Generate comprehensive report with:
+  - Total words processed
+  - Number of themes identified
+  - Character counts per post
+  - Hashtag usage statistics
+  - Template compliance status
+
+### Error Handling Enhancements
+- **Specific Error Messages**: Clear guidance on what failed and how to fix
+- **Fallback Procedures**: Graceful degradation when external resources are unavailable
+- **Recovery Workflows**: Step-by-step procedures for common failure scenarios

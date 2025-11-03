@@ -25,6 +25,7 @@ tests/
 
 - 001-linkedin-post: Added
 - 001-linkedin-post: Bug fixes completed for Windows path separators, hardcoded values, and timing issues
+- 001-linkedin-post: Quality improvements added based on Claude testing feedback
 
 <!-- MANUAL ADDITIONS START -->
 <!-- MANUAL ADDITIONS END -->
