@@ -20,10 +20,12 @@ description: "Task list template for feature implementation"
 
 ## Path Conventions
 
-- **Single project**: `src/`, `tests/` at repository root
-- **Web app**: `backend/src/`, `frontend/src/`
-- **Mobile**: `api/src/`, `ios/src/` or `android/src/`
-- Paths shown below assume single project - adjust based on plan.md structure
+- **AI Commands**: `.claude/commands/` for Markdown command files
+- **Scripts**: `.scripts/` for supporting scripts (Python/PowerShell/Bash)
+- **Documentation**: `.specify/` for templates and constitution
+- **Examples**: `docs/examples/` for usage examples
+- **Integration**: `docs/integration/` for API integration guides
+- Paths shown below assume AI CLI commands structure - adjust based on plan.md structure
 
 <!-- 
   ============================================================================
@@ -48,9 +50,9 @@ description: "Task list template for feature implementation"
 
 **Purpose**: Project initialization and basic structure
 
-- [ ] T001 Create project structure per implementation plan
-- [ ] T002 Initialize [language] project with [framework] dependencies
-- [ ] T003 [P] Configure linting and formatting tools
+- [ ] T001 Create command directory structure per implementation plan
+- [ ] T002 Create command template with frontmatter structure
+- [ ] T003 [P] Set up validation testing framework for command examples
 
 ---
 
@@ -62,12 +64,12 @@ description: "Task list template for feature implementation"
 
 Examples of foundational tasks (adjust based on your project):
 
-- [ ] T004 Setup database schema and migrations framework
-- [ ] T005 [P] Implement authentication/authorization framework
-- [ ] T006 [P] Setup API routing and middleware structure
-- [ ] T007 Create base models/entities that all stories depend on
-- [ ] T008 Configure error handling and logging infrastructure
-- [ ] T009 Setup environment configuration management
+- [ ] T004 Validate cross-agent compatibility testing setup
+- [ ] T005 [P] Document external API integration requirements (if any)
+- [ ] T006 [P] Setup script directory structure (only if required)
+- [ ] T007 Create command validation checklist
+- [ ] T008 Setup example testing framework for command verification
+- [ ] T009 Document platform compatibility requirements
 
 **Checkpoint**: Foundation ready - user story implementation can now begin in parallel
 
@@ -79,21 +81,21 @@ Examples of foundational tasks (adjust based on your project):
 
 **Independent Test**: [How to verify this story works on its own]
 
-### Tests for User Story 1 (OPTIONAL - only if tests requested) ⚠️
+### Validation for User Story 1 (REQUIRED) ⚠️
 
-> **NOTE: Write these tests FIRST, ensure they FAIL before implementation**
+> **NOTE: Validate examples FIRST, ensure they work before implementation**
 
-- [ ] T010 [P] [US1] Contract test for [endpoint] in tests/contract/test_[name].py
-- [ ] T011 [P] [US1] Integration test for [user journey] in tests/integration/test_[name].py
+- [ ] T010 [P] [US1] Test command prompt across all AI agents in .claude/commands/[command].md
+- [ ] T011 [P] [US1] Validate all examples produce expected outputs
 
 ### Implementation for User Story 1
 
-- [ ] T012 [P] [US1] Create [Entity1] model in src/models/[entity1].py
-- [ ] T013 [P] [US1] Create [Entity2] model in src/models/[entity2].py
-- [ ] T014 [US1] Implement [Service] in src/services/[service].py (depends on T012, T013)
-- [ ] T015 [US1] Implement [endpoint/feature] in src/[location]/[file].py
-- [ ] T016 [US1] Add validation and error handling
-- [ ] T017 [US1] Add logging for user story 1 operations
+- [ ] T012 [P] [US1] Create command Markdown file with frontmatter in .claude/commands/
+- [ ] T013 [P] [US1] Document input/output specifications clearly
+- [ ] T014 [US1] Add troubleshooting section and error scenarios
+- [ ] T015 [US1] Create supporting script ONLY if Markdown insufficient (justify in docs)
+- [ ] T016 [US1] Add integration documentation for external APIs (if any)
+- [ ] T017 [US1] Validate cross-platform compatibility
 
 **Checkpoint**: At this point, User Story 1 should be fully functional and testable independently
 

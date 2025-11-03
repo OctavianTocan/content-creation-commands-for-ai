@@ -1,50 +1,65 @@
-# [PROJECT_NAME] Constitution
-<!-- Example: Spec Constitution, TaskFlow Constitution, etc. -->
+<!--
+Sync Impact Report:
+Version change: 1.0.0 → 1.0.0 (initial constitution)
+Modified principles: N/A (initial creation)
+Added sections: Core Principles, Content Standards, Development Workflow, Governance
+Removed sections: N/A
+Templates requiring updates: ✅ plan-template.md, ✅ spec-template.md, ✅ tasks-template.md (all aligned with new principles)
+Follow-up TODOs: None
+-->
+
+# AI CLI Commands Constitution
 
 ## Core Principles
 
-### [PRINCIPLE_1_NAME]
-<!-- Example: I. Library-First -->
-[PRINCIPLE_1_DESCRIPTION]
-<!-- Example: Every feature starts as a standalone library; Libraries must be self-contained, independently testable, documented; Clear purpose required - no organizational-only libraries -->
+### I. Prompt-First Development
+Every slash command starts as a well-structured Markdown prompt; Prompts must be self-contained, clearly documented, and independently usable; Clear purpose required - no utility-only commands without specific use cases.
 
-### [PRINCIPLE_2_NAME]
-<!-- Example: II. CLI Interface -->
-[PRINCIPLE_2_DESCRIPTION]
-<!-- Example: Every library exposes functionality via CLI; Text in/out protocol: stdin/args → stdout, errors → stderr; Support JSON + human-readable formats -->
+### II. Multi-Agent Compatibility  
+All commands must work across OpenCode, Claude Code, and GitHub Copilot; Use standard Markdown format with frontmatter for metadata; Avoid agent-specific syntax unless explicitly documented as optional.
 
-### [PRINCIPLE_3_NAME]
-<!-- Example: III. Test-First (NON-NEGOTIABLE) -->
-[PRINCIPLE_3_DESCRIPTION]
-<!-- Example: TDD mandatory: Tests written → User approved → Tests fail → Then implement; Red-Green-Refactor cycle strictly enforced -->
+### III. Validation-Driven Design
+Commands must include validation criteria in their documentation; Each command must specify expected inputs, outputs, and success conditions; Test examples must be provided and verifiable before implementation.
 
-### [PRINCIPLE_4_NAME]
-<!-- Example: IV. Integration Testing -->
-[PRINCIPLE_4_DESCRIPTION]
-<!-- Example: Focus areas requiring integration tests: New library contract tests, Contract changes, Inter-service communication, Shared schemas -->
+### IV. Integration Simplicity
+Focus areas requiring integration: External API connections (Fireflies, Notion, etc.), File system operations, Multi-step workflows, Cross-platform compatibility (Windows/Linux/macOS).
 
-### [PRINCIPLE_5_NAME]
-<!-- Example: V. Observability, VI. Versioning & Breaking Changes, VII. Simplicity -->
-[PRINCIPLE_5_DESCRIPTION]
-<!-- Example: Text I/O ensures debuggability; Structured logging required; Or: MAJOR.MINOR.BUILD format; Or: Start simple, YAGNI principles -->
+### V. Minimal Implementation
+Start with Markdown-only solutions; Add scripts only when Markdown is insufficient; Prefer existing tools over custom code; Every script must have a clear justification that Markdown cannot achieve.
 
-## [SECTION_2_NAME]
-<!-- Example: Additional Constraints, Security Requirements, Performance Standards, etc. -->
+## Content Standards
 
-[SECTION_2_CONTENT]
-<!-- Example: Technology stack requirements, compliance standards, deployment policies, etc. -->
+### Command Structure
+All slash commands must follow this structure:
+- Frontmatter with argument hints and metadata
+- Clear description of purpose and use case  
+- Input/output specifications
+- Example usage with expected results
+- Error handling guidance
 
-## [SECTION_3_NAME]
-<!-- Example: Development Workflow, Review Process, Quality Gates, etc. -->
+### Documentation Requirements
+- Every command must be discoverable via directory structure
+- Commands must include troubleshooting sections
+- Version compatibility must be explicitly stated
+- Dependencies must be clearly documented
 
-[SECTION_3_CONTENT]
-<!-- Example: Code review requirements, testing gates, deployment approval process, etc. -->
+## Development Workflow
+
+### Creation Process
+1. Define user scenario and acceptance criteria
+2. Draft Markdown prompt with validation examples
+3. Test prompt across target AI agents
+4. Add supporting scripts only if required
+5. Document integration points and dependencies
+
+### Quality Gates
+- Commands must work without custom scripts initially
+- All examples must be tested and verifiable
+- Cross-agent compatibility must be validated
+- Documentation must be complete before integration
 
 ## Governance
-<!-- Example: Constitution supersedes all other practices; Amendments require documentation, approval, migration plan -->
 
-[GOVERNANCE_RULES]
-<!-- Example: All PRs/reviews must verify compliance; Complexity must be justified; Use [GUIDANCE_FILE] for runtime development guidance -->
+This constitution supersedes all other development practices; Amendments require documentation, team approval, and migration plan for existing commands; All command reviews must verify compliance; Complexity beyond Markdown must be explicitly justified; Use `.specify/templates/` for runtime development guidance.
 
-**Version**: [CONSTITUTION_VERSION] | **Ratified**: [RATIFICATION_DATE] | **Last Amended**: [LAST_AMENDED_DATE]
-<!-- Example: Version: 2.1.1 | Ratified: 2025-06-13 | Last Amended: 2025-07-16 -->
+**Version**: 1.0.0 | **Ratified**: 2025-11-03 | **Last Amended**: 2025-11-03

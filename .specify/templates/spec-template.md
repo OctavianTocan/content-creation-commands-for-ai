@@ -84,16 +84,16 @@
 
 ### Functional Requirements
 
-- **FR-001**: System MUST [specific capability, e.g., "allow users to create accounts"]
-- **FR-002**: System MUST [specific capability, e.g., "validate email addresses"]  
-- **FR-003**: Users MUST be able to [key interaction, e.g., "reset their password"]
-- **FR-004**: System MUST [data requirement, e.g., "persist user preferences"]
-- **FR-005**: System MUST [behavior, e.g., "log all security events"]
+- **FR-001**: Command MUST be implementable as a Markdown prompt with frontmatter
+- **FR-002**: Command MUST work across OpenCode, Claude Code, and GitHub Copilot
+- **FR-003**: Command MUST include clear input/output specifications
+- **FR-004**: Command MUST provide verifiable test examples
+- **FR-005**: Command MUST document all external dependencies (APIs, tools, etc.)
 
 *Example of marking unclear requirements:*
 
-- **FR-006**: System MUST authenticate users via [NEEDS CLARIFICATION: auth method not specified - email/password, SSO, OAuth?]
-- **FR-007**: System MUST retain user data for [NEEDS CLARIFICATION: retention period not specified]
+- **FR-006**: Command requires [NEEDS CLARIFICATION: specific API integration details]
+- **FR-007**: Command needs [NEEDS CLARIFICATION: custom script justification - why Markdown insufficient?]
 
 ### Key Entities *(include if feature involves data)*
 
@@ -109,7 +109,8 @@
 
 ### Measurable Outcomes
 
-- **SC-001**: [Measurable metric, e.g., "Users can complete account creation in under 2 minutes"]
-- **SC-002**: [Measurable metric, e.g., "System handles 1000 concurrent users without degradation"]
-- **SC-003**: [User satisfaction metric, e.g., "90% of users successfully complete primary task on first attempt"]
-- **SC-004**: [Business metric, e.g., "Reduce support tickets related to [X] by 50%"]
+- **SC-001**: Command works without errors across all target AI agents (OpenCode, Claude Code, GitHub Copilot)
+- **SC-002**: Command documentation includes complete input/output specifications
+- **SC-003**: All provided examples produce expected results when tested
+- **SC-004**: Command requires no custom scripts or uses minimal justified scripting
+- **SC-005**: Command is discoverable and usable from standard directory structure

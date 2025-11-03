@@ -17,21 +17,24 @@
   the iteration process.
 -->
 
-**Language/Version**: [e.g., Python 3.11, Swift 5.9, Rust 1.75 or NEEDS CLARIFICATION]  
-**Primary Dependencies**: [e.g., FastAPI, UIKit, LLVM or NEEDS CLARIFICATION]  
-**Storage**: [if applicable, e.g., PostgreSQL, CoreData, files or N/A]  
-**Testing**: [e.g., pytest, XCTest, cargo test or NEEDS CLARIFICATION]  
-**Target Platform**: [e.g., Linux server, iOS 15+, WASM or NEEDS CLARIFICATION]
-**Project Type**: [single/web/mobile - determines source structure]  
-**Performance Goals**: [domain-specific, e.g., 1000 req/s, 10k lines/sec, 60 fps or NEEDS CLARIFICATION]  
-**Constraints**: [domain-specific, e.g., <200ms p95, <100MB memory, offline-capable or NEEDS CLARIFICATION]  
-**Scale/Scope**: [domain-specific, e.g., 10k users, 1M LOC, 50 screens or NEEDS CLARIFICATION]
+**Primary Format**: Markdown with frontmatter (REQUIRED)  
+**Scripting Language**: [Python/PowerShell/Bash - only if Markdown insufficient]  
+**External APIs**: [e.g., Fireflies, Notion, context7 or N/A]  
+**Target AI Agents**: OpenCode, Claude Code, GitHub Copilot (REQUIRED)  
+**Platform Compatibility**: Windows, Linux, macOS (REQUIRED)  
+**Validation Method**: Manual testing with example inputs/outputs (REQUIRED)  
+**Integration Points**: File system, external APIs, multi-step workflows  
+**Complexity Constraint**: Scripts only when Markdown cannot achieve requirement
 
 ## Constitution Check
 
 *GATE: Must pass before Phase 0 research. Re-check after Phase 1 design.*
 
-[Gates determined based on constitution file]
+- [ ] **Prompt-First**: Command starts as Markdown prompt, not code
+- [ ] **Multi-Agent Compatibility**: Works across OpenCode, Claude Code, GitHub Copilot
+- [ ] **Validation-Driven**: Includes input/output specifications and test examples
+- [ ] **Integration Simplicity**: Minimal external dependencies, clear integration points
+- [ ] **Minimal Implementation**: Scripts only when Markdown is insufficient
 
 ## Project Structure
 
@@ -56,39 +59,32 @@ specs/[###-feature]/
 -->
 
 ```text
-# [REMOVE IF UNUSED] Option 1: Single project (DEFAULT)
-src/
-├── models/
-├── services/
-├── cli/
-└── lib/
+# AI CLI Commands Project Structure (DEFAULT)
+.claude/
+├── commands/           # Slash command Markdown files
+│   ├── CommandName.md  # Individual command definitions
+│   └── ...
+├── settings.local.json # Agent-specific configuration
+└── ...
 
-tests/
-├── contract/
-├── integration/
-└── unit/
+.scripts/              # Supporting scripts (ONLY if required)
+├── python/            # Python utility scripts
+├── powershell/        # PowerShell scripts for Windows
+└── bash/             # Bash scripts for Linux/macOS
 
-# [REMOVE IF UNUSED] Option 2: Web application (when "frontend" + "backend" detected)
-backend/
-├── src/
-│   ├── models/
-│   ├── services/
-│   └── api/
-└── tests/
+.specify/             # Project documentation and templates
+├── memory/
+│   └── constitution.md
+├── templates/
+│   ├── plan-template.md
+│   ├── spec-template.md
+│   └── tasks-template.md
+└── ...
 
-frontend/
-├── src/
-│   ├── components/
-│   ├── pages/
-│   └── services/
-└── tests/
-
-# [REMOVE IF UNUSED] Option 3: Mobile + API (when "iOS/Android" detected)
-api/
-└── [same as backend above]
-
-ios/ or android/
-└── [platform-specific structure: feature modules, UI flows, platform tests]
+docs/                 # Additional documentation
+├── integration/      # API integration guides
+├── troubleshooting/  # Common issues and solutions
+└── examples/         # Usage examples
 ```
 
 **Structure Decision**: [Document the selected structure and reference the real
