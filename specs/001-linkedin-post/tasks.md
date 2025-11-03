@@ -68,9 +68,18 @@ description: "Task list for Notion to LinkedIn Post Converter implementation"
 - [X] T012 [US1] Save generated posts to data/linkedin-posts/{page-name}/{theme}:{post-name}.md
 - [X] T013 [US1] Apply default template structure from https://www.notion.so/infimagames/LinkedIn-Post-Template-29f3c065308b8022aaecce22524bd32b
 - [X] T014 [US1] Apply default style guide from https://www.notion.so/infimagames/Octavian-s-Writing-Style-Guide-9e7ae38cdf164ed88c09f442332e1e46
-- [X] T015 [US1] Add error handling for when Notion MCP doesn't work
-- [X] T016 [US1] Add error handling for when Notion page is inaccessible
-- [X] T017 [US1] Add error handling for when page has no transcript content
+
+### Bug Fixes for User Story 1 (CRITICAL) 🔧
+
+- [X] T015 [US1] Fix Windows path separator issues - change from `/` to `\\` in all mkdir and file paths
+- [X] T016 [US1] Remove hardcoded PAGE_NAME variable - use dynamic page name generation from page-id
+- [X] T017 [US1] Fix style guide fetching timing - fetch style guide before processing content
+- [X] T018 [US1] Remove confirmation requirement from file operations
+- [X] T019 [US1] Fix template fetching timing - fetch template before generating posts
+- [X] T020 [US1] Fix shell command issues - avoid complex bash commands that fail on Windows
+- [X] T021 [US1] Add error handling for when Notion MCP doesn't work
+- [X] T022 [US1] Add error handling for when Notion page is inaccessible
+- [X] T023 [US1] Add error handling for when page has no transcript content
 
 **Checkpoint**: ✅ User Story 1 is fully functional and testable independently
 
@@ -84,13 +93,13 @@ description: "Task list for Notion to LinkedIn Post Converter implementation"
 
 ### Implementation for User Story 2
 
-- [ ] T018 [P] [US2] Update slash command frontmatter argument-hint to include optional parameters (-n, -t, -w, -c) in .claude/commands/Create-LinkedInPost.md
-- [ ] T019 [US2] Implement custom post count logic for -n parameter
-- [ ] T020 [US2] Implement custom template fetching for -t parameter using Notion MCP
-- [ ] T021 [US2] Implement custom style guide fetching for -w parameter using Notion MCP
-- [ ] T022 [US2] Implement context string integration for -c parameter into theme extraction
-- [ ] T023 [US2] Add parameter validation with clear error messages
-- [ ] T024 [US2] Test with various parameter combinations
+- [ ] T024 [P] [US2] Update slash command frontmatter argument-hint to include optional parameters (-n, -t, -w, -c) in .claude/commands/Create-LinkedInPost.md
+- [ ] T025 [US2] Implement custom post count logic for -n parameter
+- [ ] T026 [US2] Implement custom template fetching for -t parameter using Notion MCP
+- [ ] T027 [US2] Implement custom style guide fetching for -w parameter using Notion MCP
+- [ ] T028 [US2] Implement context string integration for -c parameter into theme extraction
+- [ ] T029 [US2] Add parameter validation with clear error messages
+- [ ] T030 [US2] Test with various parameter combinations
 
 **Checkpoint**: At this point, User Stories 1 AND 2 should both work independently
 
@@ -104,12 +113,12 @@ description: "Task list for Notion to LinkedIn Post Converter implementation"
 
 ### Implementation for User Story 3
 
-- [ ] T025 [P] [US3] Enhance Notion MCP unavailable error with specific guidance
-- [ ] T026 [P] [US3] Enhance page access errors with permission troubleshooting
-- [ ] T027 [P] [US3] Add content validation for minimum transcript requirements
-- [ ] T028 [P] [US3] Add rate limit handling with retry suggestions
-- [ ] T029 [P] [US3] Add network error handling with connection troubleshooting
-- [ ] T030 [P] [US3] Create comprehensive error scenarios and responses
+- [ ] T031 [P] [US3] Enhance Notion MCP unavailable error with specific guidance
+- [ ] T032 [P] [US3] Enhance page access errors with permission troubleshooting
+- [ ] T033 [P] [US3] Add content validation for minimum transcript requirements
+- [ ] T034 [P] [US3] Add rate limit handling with retry suggestions
+- [ ] T035 [P] [US3] Add network error handling with connection troubleshooting
+- [ ] T036 [P] [US3] Create comprehensive error scenarios and responses
 
 **Checkpoint**: All user stories should now be independently functional
 
@@ -119,10 +128,10 @@ description: "Task list for Notion to LinkedIn Post Converter implementation"
 
 **Purpose**: Improvements that affect multiple user stories
 
-- [ ] T031 [P] Create usage examples in docs/examples/linkedin-post-examples.md
-- [ ] T032 [P] Update quickstart.md with real command examples and outputs
-- [ ] T033 [P] Add progress indicators for long-running operations
-- [ ] T034 [P] Test command across all target AI agents
+- [ ] T037 [P] Create usage examples in docs/examples/linkedin-post-examples.md
+- [ ] T038 [P] Update quickstart.md with real command examples and outputs
+- [ ] T039 [P] Add progress indicators for long-running operations
+- [ ] T040 [P] Test command across all target AI agents
 
 ---
 

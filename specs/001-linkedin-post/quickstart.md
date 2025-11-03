@@ -143,6 +143,7 @@ Solution: Ensure page contains text content for processing
 1. Ensure write permissions to project directory
 2. Check available disk space
 3. Verify path length limits (Windows)
+4. Use Windows path separators (\\) for directory creation
 
 ### Content Processing Issues
 1. Verify page contains sufficient text content (>50 words)

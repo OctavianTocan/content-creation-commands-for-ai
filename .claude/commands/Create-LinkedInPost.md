@@ -54,12 +54,13 @@ If page access is successful, extract the full text content from the Notion page
 **Create timestamp for unique directory names:**
 ```bash
 TIMESTAMP=$(date +"%Y-%m-%d-%H%M%S")
+PAGE_NAME=$(echo "$1" | sed 's/[^a-zA-Z0-9]/-/g' | tr '[:upper:]' '[:lower:]')
 ```
 
 **Create directory structure:**
 ```bash
-mkdir -p "data/transcripts/{page-name}-${TIMESTAMP}"
-mkdir -p "data/linkedin-posts/{page-name}-${TIMESTAMP}"
+mkdir -p "data\\transcripts\\${PAGE_NAME}-${TIMESTAMP}"
+mkdir -p "data\\linkedin-posts\\${PAGE_NAME}-${TIMESTAMP}"
 ```
 
 **Save transcript with metadata:**
@@ -87,21 +88,23 @@ Use the AI model to analyze the transcript content and extract:
 
 **Post Generation Notes:**
 - Specific angles to explore for each theme
-- Tone considerations based on content type
+- Fetch and apply style guide from Notion
 - Target audience insights
 
-**Save analysis to:** `data/transcripts/{page-name}-${TIMESTAMP}/themes-analysis.md`
+**Save analysis to:** `data\\transcripts\\${PAGE_NAME}-${TIMESTAMP}\\themes-analysis.md`
 
 ### Step 5: Generate LinkedIn Posts ONE BY ONE
 Using the extracted themes, generate individual LinkedIn posts:
 
 **For each theme:**
-1. Fetch template structure (default or custom via Notion MCP)
-2. Fetch style guide (default or custom via Notion MCP)
+1. Fetch default template from Notion unless custom template specified
+2. Fetch default style guide from Notion unless custom style guide specified
 3. Generate post content following template and style guidelines
 4. Ensure post is under 3000 characters
 5. Include appropriate hashtags (max 3)
 6. Save with naming: `{theme}:{post-name}.md`
+
+
 
 **Post file structure:**
 ```markdown
@@ -118,7 +121,7 @@ Using the extracted themes, generate individual LinkedIn posts:
 - Character count < 3000 for LinkedIn compliance
 - Hashtag count ≤ 3 for best practices
 - Follow template structure exactly
-- Apply style guide consistently
+- Apply my writing style consistently
 
 ## Default Resources
 
@@ -141,21 +144,6 @@ The command will terminate gracefully with clear error messages if:
 
 # Custom configuration
 /Create-LinkedInPost a1b2c3d4-e5f6-7890-abcd-ef1234567890 -n 5 -t template-id -w style-id -c "Team meeting about Q4 planning"
-```
-
-## Output Structure
-
-```
-data/
-├── transcripts/
-│   └── {page-name}/
-│       ├── transcript.md
-│       └── themes-analysis.md
-└── linkedin-posts/
-    └── {page-name}/
-        ├── theme1:post1.md
-        ├── theme2:post2.md
-        └── theme3:post3.md
 ```
 
 ## Output Structure
