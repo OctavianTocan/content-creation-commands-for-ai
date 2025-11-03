@@ -44,8 +44,16 @@
     ]
   },
   "enableAllProjectMcpServers": true,
-  "enabledMcpjsonServers": ["notion", "Fireflies", "context7"],
-  "disabledMcpjsonServers": ["web-scraper", "system-admin", "network-tools"],
+  "enabledMcpjsonServers": [
+    "notion",
+    "Fireflies",
+    "context7"
+  ],
+  "disabledMcpjsonServers": [
+    "web-scraper",
+    "system-admin",
+    "network-tools"
+  ],
   "statusLine": {
     "type": "command",
     "command": "python3 .claude/scripts/context-monitor.py"
