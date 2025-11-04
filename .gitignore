@@ -1,0 +1,49 @@
+# OS generated files
+.DS_Store
+Thumbs.db
+*.swp
+*.tmp
+
+# IDE files
+.vscode/
+.idea/
+*.user
+*.suo
+
+# Logs
+*.log
+logs/
+
+# Environment files
+.env
+.env.local
+.env.*.local
+
+# Node.js (if any)
+node_modules/
+dist/
+build/
+*.min.js
+
+# Python (if any)
+__pycache__/
+*.pyc
+.venv/
+venv/
+*.egg-info/
+
+# Temporary files
+*.tmp
+*.temp
+.cache/
+
+# Data directories (keep structure but ignore content)
+data/transcripts/*/
+data/linkedin-posts/*/
+!data/transcripts/.gitkeep
+!data/linkedin-posts/.gitkeep
+.opencode
+
+.specify/scripts
+.specify/templates
+opencode.jsonc

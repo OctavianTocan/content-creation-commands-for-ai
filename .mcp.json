@@ -7,15 +7,6 @@
     "Fireflies": {
       "type": "http",
       "url": "https://api.fireflies.ai/mcp"
-    },
-    "context7": {
-      "command": "cmd",
-      "args": [
-        "/c",
-        "npx",
-        "-y",
-        "@upstash/context7-mcp"
-      ]
     }
   }
 }

@@ -7,7 +7,7 @@
 
 ## Summary
 
-[Extract from feature spec: primary requirement + technical approach from research]
+Convert Notion page transcripts to LinkedIn posts using a phased validation approach. The system first validates Notion MCP availability and page access before processing content. Upon successful validation, it extracts transcript content, analyzes themes, and generates multiple LinkedIn post variations using specified templates and style guides. All outputs are saved to structured file directories with clear naming conventions.
 
 ## Technical Context
 
@@ -18,23 +18,23 @@
 -->
 
 **Primary Format**: Markdown with frontmatter (REQUIRED)  
-**Scripting Language**: [Python/PowerShell/Bash - only if Markdown insufficient]  
-**External APIs**: [e.g., Fireflies, Notion, context7 or N/A]  
+**Scripting Language**: Bash (minimal - for file operations only)  
+**External APIs**: Notion MCP (https://mcp.notion.com/mcp)  
 **Target AI Agents**: OpenCode, Claude Code, GitHub Copilot (REQUIRED)  
 **Platform Compatibility**: Windows, Linux, macOS (REQUIRED)  
 **Validation Method**: Manual testing with example inputs/outputs (REQUIRED)  
-**Integration Points**: File system, external APIs, multi-step workflows  
+**Integration Points**: File system operations, Notion MCP, structured content processing  
 **Complexity Constraint**: Scripts only when Markdown cannot achieve requirement
 
 ## Constitution Check
 
 *GATE: Must pass before Phase 0 research. Re-check after Phase 1 design.*
 
-- [ ] **Prompt-First**: Command starts as Markdown prompt, not code
-- [ ] **Multi-Agent Compatibility**: Works across OpenCode, Claude Code, GitHub Copilot
-- [ ] **Validation-Driven**: Includes input/output specifications and test examples
-- [ ] **Integration Simplicity**: Minimal external dependencies, clear integration points
-- [ ] **Minimal Implementation**: Scripts only when Markdown is insufficient
+- [x] **Prompt-First**: Command starts as Markdown prompt, not code
+- [x] **Multi-Agent Compatibility**: Works across OpenCode, Claude Code, GitHub Copilot
+- [x] **Validation-Driven**: Includes input/output specifications and test examples
+- [x] **Integration Simplicity**: Minimal external dependencies, clear integration points
+- [x] **Minimal Implementation**: Scripts only when Markdown is insufficient
 
 ## Project Structure
 
@@ -87,8 +87,7 @@ docs/                 # Additional documentation
 └── examples/         # Usage examples
 ```
 
-**Structure Decision**: [Document the selected structure and reference the real
-directories captured above]
+**Structure Decision**: Using default AI CLI Commands structure with .claude/commands/ for slash commands and data/ directory for processed outputs. This aligns with existing project structure and supports cross-agent compatibility.
 
 ## Complexity Tracking
 
@@ -98,3 +97,38 @@ directories captured above]
 |-----------|------------|-------------------------------------|
 | [e.g., 4th project] | [current need] | [why 3 projects insufficient] |
 | [e.g., Repository pattern] | [specific problem] | [why direct DB access insufficient] |
+
+---
+
+## Quality Improvements (Based on Claude Testing Feedback)
+
+### Directory Structure & File Handling
+- **Page Title Extraction**: Extract actual Notion page title and sanitize for directory names instead of hardcoded patterns
+- **Cross-Platform Compatibility**: Implement proper file naming sanitization for Windows/Linux/macOS
+- **Directory Conflict Prevention**: Check directory existence before creation
+
+### Content Validation & Quality Assurance
+- **Character Count Validation**: Enforce < 3000 character limit with actual counting, not estimation
+- **Hashtag Validation**: Ensure ≤ 3 hashtags per post with automated checking
+- **Style Guide Compliance**: Validate formatting rules (separators, APA title case, etc.) after generation
+- **Template Variable Mapping**: Systematically map template variables from transcript content
+- **Content Consistency**: Ensure consistent voice and structure across all generated posts
+
+### Process Improvements
+- **Validation Checkpoints**: Add verification steps after each major operation
+- **Post-Generation Checklist**: Implement requirement verification before file saving
+- **Enhanced Error Handling**: Specific recovery procedures for different failure modes
+- **Progress Reporting**: Detailed status updates throughout the process
+
+### Reporting & Metrics
+- **Completion Summary**: Generate comprehensive report with:
+  - Total words processed
+  - Number of themes identified
+  - Character counts per post
+  - Hashtag usage statistics
+  - Template compliance status
+
+### Error Handling Enhancements
+- **Specific Error Messages**: Clear guidance on what failed and how to fix
+- **Fallback Procedures**: Graceful degradation when external resources are unavailable
+- **Recovery Workflows**: Step-by-step procedures for common failure scenarios
