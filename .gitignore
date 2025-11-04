@@ -42,3 +42,8 @@ data/transcripts/*/
 data/linkedin-posts/*/
 !data/transcripts/.gitkeep
 !data/linkedin-posts/.gitkeep
+.opencode
+
+.specify/scripts
+.specify/templates
+opencode.jsonc
